@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QnA Page</title>
+    <link href="mycss.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Pretendard", sans-serif;
+            /* 전체 글꼴 변경 */
+        }
+
+        .bg {
+            padding: 0 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 900;
+            margin: 0;
+        }
+
+        .header .icon {
+            font-size: 24px;
+        }
+
+        .qa-container {
+            margin: 10px 50px;
+        }
+
+        .qa {
+            margin-bottom: 20px;
+        }
+
+        .question,
+        .answer {
+            border-radius: 10px;
+            padding: 20px;
+            margin: 5px 0;
+            position: relative;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .question {
+            background-color: #d8f39e;
+        }
+
+        .answer {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+        }
+
+        .question span,
+        .answer span {
+            display: block;
+        }
+
+        .question .q-text,
+        .answer .a-text {
+            font-size: 16px;
+            font-weight: 900;
+        }
+
+        .question .q-text {
+            flex: 1;
+        }
+
+        .answer .a-text {
+            margin-right: 10px;
+        }
+
+        .answer-buttons {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: flex;
+        }
+
+        .answer-buttons button {
+            background-color: #e0e0e0;
+            border: none;
+            border-radius: 5px;
+            margin-left: 5px;
+            cursor: pointer;
+            padding: 5px 10px;
+        }
+
+        .answer-buttons button:hover {
+            background-color: #d0d0d0;
+        }
+
+        .answer textarea {
+            width: 100%;
+            padding: 15px 10px;
+            /* 상하 padding을 키워서 텍스트를 중앙으로 */
+            border-radius: 5px;
+            border: none;
+            resize: none;
+            overflow: hidden;
+            line-height: 1.5;
+            /* 줄 높이를 지정하여 텍스트가 중앙에 위치하게 함 */
+            box-sizing: border-box;
+            /* padding을 포함한 요소의 전체 크기를 지정 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Pretendard', sans-serif;
+        }
+
+
+        .answer textarea:focus {
+            outline: none;
+        }
+
+        .nav {
+            font-size: 30px;
+            font-weight: 700;
+            margin: 10px;
+            color: #9C9C9C;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg">
+        <div style="padding: 30px 40px 20px;">
+            <span class="nav"><a href="/qna.html" style="color: black; font-weight: 900;">문답</a></span>
+            <span class="nav"><a href="/qna">문답</a></span>
+        </div>
+
+        <div class="qa-container">
+            <div class="qa">
+                <div class="question">
+                    <span class="q-text">Q. 시연 의 이름은 무슨 뜻이야?</span>
+                </div>
+                <div class="answer">
+                    <span class="a-text">A.</span>
+                    <textarea rows="1"></textarea>
+                    <div class="answer-buttons">
+                        <button>수정</button>
+                        <button>삭제</button>
+                        <button>저장</button>
+                    </div>
+                </div>
+            </div>
+            <div class="qa">
+                <div class="question">
+                    <span class="q-text">Q. 시연 의 태명은 뭐였어?? 궁금하다. 이야기 해줄래?</span>
+                </div>
+                <div class="answer">
+                    <span class="a-text">A.</span>
+                    <textarea rows="1">내 태명은 보석이야! 엄마가 같다기 보석이 열린 나무에서 보석을 한 움큼 따서 품에 넣었대!</textarea>
+                    <div class="answer-buttons">
+                        <button>수정</button>
+                        <button>삭제</button>
+                        <button>저장</button>
+                    </div>
+                </div>
+            </div>
+            <div class="qa">
+                <div class="question">
+                    <span class="q-text">Q. 시연 이 좋아하는 색은 어떤 색이야?</span>
+                </div>
+                <div class="answer">
+                    <span class="a-text">A.</span>
+                    <textarea rows="1">나는 좀 청색 계열을 좋아하는 것 같아. 파란색과 녹색?</textarea>
+                    <div class="answer-buttons">
+                        <button>수정</button>
+                        <button>삭제</button>
+                        <button>저장</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const textareas = document.querySelectorAll('textarea');
+
+        textareas.forEach(textarea => {
+            textarea.style.height = 'auto';
+            textarea.style.height = (textarea.scrollHeight) + 'px';
+
+            textarea.addEventListener('input', function () {
+                textarea.style.height = 'auto';
+                textarea.style.height = (textarea.scrollHeight) + 'px';
+            });
+        });
+    </script>
+</body>
+
+</html>
